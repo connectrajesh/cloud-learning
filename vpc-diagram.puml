@@ -1,0 +1,67 @@
+@startuml
+
+class VPC_Network {
+  +subnets: Subnet[]
+  +firewall_rules: FirewallRule[]
+  +routes: Route[]
+  +external_IPs: ExternalIP[]
+  +network_interfaces: NetworkInterface[]
+  +vpc_peering: VPC_Peering
+  +cloud_VPN: Cloud_VPN
+  +cloud_DNS: Cloud_DNS
+  +cloud_interconnect: Cloud_Interconnect
+}
+
+class Subnet {
+  +IP_range: string
+  +region: string
+}
+
+class FirewallRule {
+  +direction: string
+  +protocol: string
+  +ports: int[]
+  +source_IPs: string[]
+}
+
+class Route {
+  +destination_IP_range: string
+  +next_hop: string
+}
+
+class ExternalIP {
+  +IP_address: string
+}
+
+class NetworkInterface {
+  +name: string
+  +IP_address: string
+}
+
+class VPC_Peering {
+  +peer_VPC_network: VPC_Network
+}
+
+class Cloud_VPN {
+  +on_premises_network: string
+}
+
+class Cloud_DNS {
+  +mapped_domain_names: string[]
+}
+
+class Cloud_Interconnect{
+  +private_connections: string[]
+}
+
+VPC_Network --> Subnet
+VPC_Network --> FirewallRule
+VPC_Network --> Route
+VPC_Network --> ExternalIP
+VPC_Network --> NetworkInterface
+VPC_Network --> VPC_Peering
+VPC_Network --> Cloud_VPN
+VPC_Network --> Cloud_DNS
+VPC_Network --> Cloud_Interconnect
+
+@enduml
