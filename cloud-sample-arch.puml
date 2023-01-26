@@ -1,0 +1,28 @@
+@startuml
+
+actor Player
+
+participant GameServer
+participant GoogleCloudSQL
+participant GoogleCloudStorage
+participant GoogleCloudLoadBalancer
+participant GoogleCloudKubernetesEngine
+participant GoogleCloudGPU
+
+Player -> GoogleCloudLoadBalancer : Connect to game
+GoogleCloudLoadBalancer -> GoogleCloudKubernetesEngine : Allocate resources
+GoogleCloudKubernetesEngine -> GameServer : Initialize game
+GameServer -> GoogleCloudSQL : Retrieve player data
+GoogleCloudSQL --> GameServer : Return player data
+GameServer -> GoogleCloudGPU : Render graphics
+GameServer --> Player : Display game screen
+Player -> GameServer : Update player actions
+GameServer -> GoogleCloudSQL : Update player data
+GameServer -> GoogleCloudStorage : Retrieve leaderboard data
+GoogleCloudStorage --> GameServer : Return leaderboard data
+GameServer --> Player : Display leaderboard
+Player -> GameServer : Request to exit game
+GameServer -> GoogleCloudKubernetesEngine : Release resources
+GoogleCloudKubernetesEngine --> Player : Disconnect from game
+
+@enduml
