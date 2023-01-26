@@ -1,0 +1,13 @@
+Google Cloud Platform (GCP) Virtual Private Cloud (VPC) is a virtual network that you can create and configure to your specific needs. The hierarchy of a VPC includes the following components:
+
+VPC network: The top-level container for all of the resources in your VPC.
+Subnetworks (subnets): A subnet is a range of IP addresses within a VPC network. Each subnet is associated with a single region.
+Firewall rules: Firewall rules control inbound and outbound traffic to and from your VPC network and its subnets.
+Routes: Routes control the flow of network traffic within and between subnets.
+External IP addresses: External IP addresses are used to connect to the internet or other networks outside of your VPC.
+Network interfaces: A network interface represents a virtual NIC for a specific instance.
+Virtual Private Cloud (VPC) Peering: VPC peering enables resources in one VPC to communicate with resources in another VPC as if they were in the same VPC.
+Cloud VPN: Cloud VPN allows you to securely connect your on-premises network to your VPC network.
+Cloud DNS: Cloud DNS is a managed DNS service that allows you to map domain names to your VPC resources.
+Cloud Interconnect : Cloud Interconnect allows you to create private connections between your on-premises infrastructure and Google's network.
+In summary, GCP VPC Hierarchy consists of a VPC network, which contains subnets, firewall rules, routes, external IP addresses, network interfaces, VPC peering, Cloud VPN, Cloud DNS, and Cloud Interconnect.
